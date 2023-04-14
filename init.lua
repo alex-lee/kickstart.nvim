@@ -164,7 +164,7 @@ require('lazy').setup({
       },
       sections = {
         lualine_c = {
-          { 'filename', path = 1 },
+          { 'filename', path = 1 }, -- Show relative path.
         },
       },
     },
@@ -180,7 +180,7 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim',         opts = {} },
+  { 'numToStr/Comment.nvim', opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
@@ -243,7 +243,7 @@ vim.o.mouse = 'a'
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.o.clipboard = 'unnamedplus'
+-- vim.o.clipboard = 'unnamedplus'
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -397,6 +397,9 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
+  -- Prevent lsp from setting formatexpr. Use the internal one instead.
+  vim.opt.formatexpr = ''
+
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
   -- many times.
@@ -476,7 +479,11 @@ local servers = {
   marksman = {},
   svelte = {},
   tsserver = {},
-  yamlls = {},
+  yamlls = {
+    yaml = {
+      keyOrdering = false,
+    },
+  },
 }
 
 -- Setup neovim lua configuration

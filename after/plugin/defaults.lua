@@ -9,17 +9,16 @@ vim.opt.sidescrolloff = 4
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
--- Telescope mappings
-
 -- Gitsigns mappings
-vim.keymap.set('n', ']c', require('gitsigns').next_hunk, keymap_opts)
-vim.keymap.set('n', '[c', require('gitsigns').prev_hunk, keymap_opts)
-vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk, keymap_opts)
+vim.keymap.set('n', ']h', require('gitsigns').next_hunk, { desc = 'Next [H]unk' })
+vim.keymap.set('n', '[h', require('gitsigns').prev_hunk, { desc = 'Prev [H]unk' })
+vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk, { desc = '[H]unk [P]review' })
+vim.keymap.set({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>', { desc = '[H]unk [R]eset' })
 
 -- Other custom mappings
 vim.keymap.set('i', 'jj', '<Esc>', keymap_opts)
-vim.keymap.set('n', '<leader>E', ':Explore<CR>', keymap_opts)
-vim.keymap.set('n', '<leader>F', ':Format<CR>', keymap_opts)
+vim.keymap.set('n', '<leader>E', ':Explore<CR>', { desc = '[E]xplore directory of the current file' })
+vim.keymap.set('n', '<leader>F', ':Format<CR>', { desc = '[F]ormat the current file' })
 
 -- Custom comands
 vim.api.nvim_command 'command BD Bdelete'
@@ -29,8 +28,10 @@ vim.api.nvim_command 'command BW Bwipeout'
 vim.keymap.set('v', 'p', '"_dP', keymap_opts)
 
 -- Highlight <cword>, but don't automatically jump to the next match.
-vim.keymap.set('n', '<leader>*', ":<C-u>let @/ = '\\<' . expand('<cword>') . '\\>'<CR>:set hlsearch<CR>", keymap_opts)
-vim.keymap.set('n', '<leader>g*', ":<C-u>let @/ = expand('<cword>')<CR>:set hlsearch<CR>", keymap_opts)
+vim.keymap.set('n', '<leader>*', ":<C-u>let @/ = '\\<' . expand('<cword>') . '\\>'<CR>:set hlsearch<CR>",
+{ desc = 'Search word under cursor (strict)' })
+vim.keymap.set('n', '<leader>g*', ":<C-u>let @/ = expand('<cword>')<CR>:set hlsearch<CR>",
+{ desc = 'Search word under cursor (loose)' })
 
 -- Clear highlight.
-vim.keymap.set('n', '<leader>n', ':nohlsearch<CR>', keymap_opts)
+vim.keymap.set('n', '<leader>n', ':nohlsearch<CR>', { desc = 'U[n]highlight search' })
