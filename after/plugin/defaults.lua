@@ -29,9 +29,13 @@ vim.keymap.set('v', 'p', '"_dP', keymap_opts)
 
 -- Highlight <cword>, but don't automatically jump to the next match.
 vim.keymap.set('n', '<leader>*', ":<C-u>let @/ = '\\<' . expand('<cword>') . '\\>'<CR>:set hlsearch<CR>",
-{ desc = 'Search word under cursor (strict)' })
+  { desc = 'Search word under cursor (strict)' })
 vim.keymap.set('n', '<leader>g*', ":<C-u>let @/ = expand('<cword>')<CR>:set hlsearch<CR>",
-{ desc = 'Search word under cursor (loose)' })
+  { desc = 'Search word under cursor (loose)' })
 
 -- Clear highlight.
 vim.keymap.set('n', '<leader>n', ':nohlsearch<CR>', { desc = 'U[n]highlight search' })
+
+-- Quickfix navigation
+vim.keymap.set('n', '[c', ':cp<CR>', { desc = 'Go to previous quickfix entry' })
+vim.keymap.set('n', ']c', ':cn<CR>', { desc = 'Go to next quickfix entry' })
