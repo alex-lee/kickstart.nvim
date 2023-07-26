@@ -500,12 +500,10 @@ require('which-key').register({
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  -- pyright = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
   bashls = {},
   dockerls = {},
   gopls = {},
-  jedi_language_server = {},
+  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
   jsonls = {},
   lua_ls = {
     Lua = {
@@ -514,6 +512,8 @@ local servers = {
     },
   },
   marksman = {},
+  ruff_lsp = {},
+  pyright = {},
   svelte = {},
   tsserver = {},
   yamlls = {

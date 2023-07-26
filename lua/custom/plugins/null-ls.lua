@@ -13,8 +13,6 @@ return {
         null_ls.builtins.diagnostics.staticcheck,
         -- Python.
         null_ls.builtins.formatting.black,
-        null_ls.builtins.diagnostics.mypy,
-        null_ls.builtins.diagnostics.flake8,
         -- JavaScript, etc.
         null_ls.builtins.formatting.prettier.with {
           extra_filetypes = { 'svelte' },
