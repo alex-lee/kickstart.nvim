@@ -21,6 +21,7 @@ return {
         },
         -- Shell.
         null_ls.builtins.diagnostics.shellcheck,
+        null_ls.builtins.formatting.shfmt,
         -- SQL.
         null_ls.builtins.formatting.pg_format,
       },
