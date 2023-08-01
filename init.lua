@@ -293,11 +293,33 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
+    layout_strategy = 'vertical',
+    layout_config = {
+      vertical = { width = 0.9 },
+    },
+    path_display = { 'truncate' },
     mappings = {
       i = {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
       },
+    },
+  },
+  pickers = {
+    lsp_references = {
+      fname_width = 50,
+    },
+    lsp_document_symbols = {
+      fname_width = 50,
+      symbol_width = 80,
+    },
+    lsp_workspace_symbols = {
+      fname_width = 50,
+      symbol_width = 80,
+    },
+    lsp_dynamic_workspace_symbols = {
+      fname_width = 50,
+      symbol_width = 80,
     },
   },
 }
