@@ -39,3 +39,11 @@ vim.keymap.set('n', '<leader>n', ':nohlsearch<CR>', { desc = 'U[n]highlight sear
 -- Quickfix navigation
 vim.keymap.set('n', '[c', ':cp<CR>', { desc = 'Go to previous quickfix entry' })
 vim.keymap.set('n', ']c', ':cn<CR>', { desc = 'Go to next quickfix entry' })
+
+-- Include source for diagnostics.
+vim.diagnostic.config {
+  float = {
+    source = 'always',
+    border = 'single',
+  },
+}

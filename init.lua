@@ -321,6 +321,13 @@ require('telescope').setup {
       fname_width = 50,
       symbol_width = 80,
     },
+    buffers = {
+      mappings = {
+        n = {
+          ['d'] = 'delete_buffer',
+        },
+      },
+    },
   },
 }
 
@@ -525,7 +532,7 @@ local servers = {
   bashls = {},
   dockerls = {},
   gopls = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  html = { filetypes = { 'html' } },
   jsonls = {},
   lua_ls = {
     Lua = {
