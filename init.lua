@@ -532,7 +532,7 @@ local servers = {
   bashls = {},
   dockerls = {},
   gopls = {},
-  html = { filetypes = { 'html' } },
+  html = { filetypes = { 'html', 'htmldjango' } },
   jsonls = {},
   lua_ls = {
     Lua = {
