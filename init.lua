@@ -369,12 +369,14 @@ vim.defer_fn(function()
       'html',
       'http',
       'ini',
+      'java',
       'javascript',
       'jq',
       'json',
       'jsonc',
       'jsonnet',
       'latex',
+      'ledger',
       'lua',
       'make',
       'markdown',
@@ -533,6 +535,7 @@ local servers = {
   dockerls = {},
   gopls = {},
   html = { filetypes = { 'html', 'htmldjango' } },
+  jdtls = {},
   jsonls = {},
   lua_ls = {
     Lua = {
