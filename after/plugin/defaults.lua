@@ -12,7 +12,6 @@ vim.opt.splitright = true
 -- Gitsigns mappings
 vim.keymap.set('n', ']h', require('gitsigns').next_hunk, { desc = 'Next [H]unk' })
 vim.keymap.set('n', '[h', require('gitsigns').prev_hunk, { desc = 'Prev [H]unk' })
-vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk, { desc = '[H]unk [P]review' })
 vim.keymap.set({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>', { desc = '[H]unk [R]eset' })
 
 -- Other custom mappings
