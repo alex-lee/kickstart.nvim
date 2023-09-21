@@ -390,6 +390,7 @@ vim.defer_fn(function()
       'rust',
       'sql',
       'svelte',
+      'templ',
       'toml',
       'tsx',
       'typescript',
