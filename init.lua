@@ -537,6 +537,7 @@ require('which-key').register({
 --  define the property 'filetypes' to the map in question.
 local servers = {
   bashls = {},
+  cssls = {},
   dockerls = {},
   gopls = {},
   html = { filetypes = { 'html', 'htmldjango' } },
