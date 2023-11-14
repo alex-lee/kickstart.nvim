@@ -556,6 +556,7 @@ local servers = {
   pyright = {},
   svelte = {},
   taplo = {},
+  templ = {},
   terraformls = {},
   tsserver = {},
   yamlls = {
