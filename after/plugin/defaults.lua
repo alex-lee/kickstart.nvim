@@ -10,8 +10,6 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 -- Gitsigns mappings
-vim.keymap.set('n', ']h', require('gitsigns').next_hunk, { desc = 'Next [H]unk' })
-vim.keymap.set('n', '[h', require('gitsigns').prev_hunk, { desc = 'Prev [H]unk' })
 vim.keymap.set({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>', { desc = '[H]unk [R]eset' })
 
 -- Other custom mappings
@@ -36,8 +34,8 @@ vim.keymap.set('n', '<leader>g*', ":<C-u>let @/ = expand('<cword>')<CR>:set hlse
 vim.keymap.set('n', '<leader>n', ':nohlsearch<CR>', { desc = 'U[n]highlight search' })
 
 -- Quickfix navigation
-vim.keymap.set('n', '[c', ':cp<CR>', { desc = 'Go to previous quickfix entry' })
-vim.keymap.set('n', ']c', ':cn<CR>', { desc = 'Go to next quickfix entry' })
+vim.keymap.set('n', '[q', ':cprevious<CR>', { desc = 'Go to previous quickfix entry' })
+vim.keymap.set('n', ']q', ':cnext<CR>', { desc = 'Go to next quickfix entry' })
 
 -- Include source for diagnostics.
 vim.diagnostic.config {
