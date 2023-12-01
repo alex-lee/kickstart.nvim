@@ -11,8 +11,6 @@ return {
         -- Go.
         null_ls.builtins.formatting.golines,
         null_ls.builtins.diagnostics.staticcheck,
-        -- Python.
-        -- null_ls.builtins.formatting.black,
         -- JavaScript, etc.
         null_ls.builtins.formatting.prettier.with {
           extra_filetypes = { 'svelte' },
