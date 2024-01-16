@@ -88,7 +88,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -647,10 +647,16 @@ local servers = {
   bashls = {},
   cssls = {},
   dockerls = {},
-  gopls = {},
+  gopls = {
+    gopls = {
+      staticcheck = true,
+    },
+  },
   html = { filetypes = { 'html', 'htmldjango' } },
   jdtls = {},
-  jsonls = {},
+  jsonls = {
+    init_options = { provideFormatter = false },
+  },
   lemminx = {},
   lua_ls = {
     Lua = {
@@ -696,6 +702,7 @@ mason_lspconfig.setup_handlers {
       on_attach = on_attach,
       settings = servers[server_name],
       filetypes = (servers[server_name] or {}).filetypes,
+      init_options = (servers[server_name] or {}).init_options,
     }
   end,
 }
