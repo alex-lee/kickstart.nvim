@@ -23,6 +23,7 @@ return {
     formatters_by_ft = {
       css = { 'prettier' },
       go = { 'golines' },
+      html = { 'prettier' },
       javascript = { 'prettier' },
       json = { 'prettier' },
       jsonc = { 'prettier' },
