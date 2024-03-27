@@ -352,7 +352,21 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
-        -- pickers = {}
+        defaults = {
+          layout_strategy = 'vertical',
+          layout_config = {
+            vertical = { width = 0.9 },
+          },
+        },
+        pickers = {
+          buffers = {
+            mappings = {
+              n = {
+                ['d'] = 'delete_buffer',
+              },
+            },
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),

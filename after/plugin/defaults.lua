@@ -9,9 +9,6 @@ vim.opt.sidescrolloff = 4
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
--- Gitsigns mappings
-vim.keymap.set({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>', { desc = '[H]unk [R]eset' })
-
 -- Other custom mappings
 vim.keymap.set('i', 'jj', '<Esc>', keymap_opts)
 vim.keymap.set('n', '<leader>E', ':Explore<CR>', { desc = '[E]xplore directory of the current file' })
@@ -25,10 +22,8 @@ vim.api.nvim_command 'command BW Bwipeout'
 vim.keymap.set('v', 'p', '"_dP', keymap_opts)
 
 -- Highlight <cword>, but don't automatically jump to the next match.
-vim.keymap.set('n', '<leader>*', ":<C-u>let @/ = '\\<' . expand('<cword>') . '\\>'<CR>:set hlsearch<CR>",
-  { desc = 'Search word under cursor (strict)' })
-vim.keymap.set('n', '<leader>g*', ":<C-u>let @/ = expand('<cword>')<CR>:set hlsearch<CR>",
-  { desc = 'Search word under cursor (loose)' })
+vim.keymap.set('n', '<leader>*', ":<C-u>let @/ = '\\<' . expand('<cword>') . '\\>'<CR>:set hlsearch<CR>", { desc = 'Search word under cursor (strict)' })
+vim.keymap.set('n', '<leader>g*', ":<C-u>let @/ = expand('<cword>')<CR>:set hlsearch<CR>", { desc = 'Search word under cursor (loose)' })
 
 -- Clear highlight.
 vim.keymap.set('n', '<leader>n', ':nohlsearch<CR>', { desc = 'U[n]highlight search' })
