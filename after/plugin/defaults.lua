@@ -39,3 +39,7 @@ vim.diagnostic.config {
     border = 'single',
   },
 }
+
+-- Disable list mode by default.
+vim.opt.list = false
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', eol = '$' }
