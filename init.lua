@@ -372,6 +372,9 @@ require('lazy').setup({
               },
             },
           },
+          find_files = {
+            find_command = { 'fd', '--hidden', '--type', 'f', '--strip-cwd-prefix' },
+          },
         },
         extensions = {
           ['ui-select'] = {
@@ -389,6 +392,9 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', '<leader>sb', function()
+        builtin.find_files { cwd = vim.fn.expand '%:p:h' }
+      end, { desc = '[S]earch si[b]lings of current file' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
@@ -616,6 +622,7 @@ require('lazy').setup({
             keyOrdering = false,
           },
         },
+        zls = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
