@@ -162,8 +162,6 @@ vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -526,8 +524,6 @@ require('lazy').setup({
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
           -- Opens a popup that displays documentation about the word under your cursor
-          --  See `:help K` for why this keymap.
-          map('K', vim.lsp.buf.hover, 'Hover Documentation')
           map('gK', vim.lsp.buf.signature_help, 'Signature Documentation')
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
@@ -596,8 +592,10 @@ require('lazy').setup({
         cssls = {},
         dockerls = {},
         gopls = {
-          gopls = {
-            staticcheck = true,
+          settings = {
+            gopls = {
+              staticcheck = true,
+            },
           },
         },
         html = {
