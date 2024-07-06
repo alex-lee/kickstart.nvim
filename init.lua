@@ -698,7 +698,7 @@ require('lazy').setup({
         -- languages here or re-enable it for the disabled ones.
         local disable_filetypes = { c = true, cpp = true }
         return {
-          timeout_ms = 500,
+          timeout_ms = 1000,
           lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
         }
       end,
@@ -706,7 +706,7 @@ require('lazy').setup({
         css = { 'prettier' },
         go = { 'golines' },
         html = { 'prettier' },
-        htmldjango = { 'prettier' },
+        htmldjango = { 'prettier', 'djlint' },
         javascript = { 'prettier' },
         json = { 'prettier' },
         jsonc = { 'prettier' },
@@ -986,7 +986,7 @@ require('lazy').setup({
   --
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
+  require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
