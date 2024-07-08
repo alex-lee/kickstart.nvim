@@ -706,7 +706,7 @@ require('lazy').setup({
         css = { 'prettier' },
         go = { 'golines' },
         html = { 'prettier' },
-        htmldjango = { 'prettier', 'djlint' },
+        htmldjango = { 'prettier' },
         javascript = { 'prettier' },
         json = { 'prettier' },
         jsonc = { 'prettier' },
