@@ -661,7 +661,7 @@ require('lazy').setup({
         taplo = {},
         templ = {},
         terraformls = {},
-        tsserver = {},
+        ts_ls = {},
         yamlls = {
           yaml = {
             keyOrdering = false,
@@ -762,6 +762,7 @@ require('lazy').setup({
         html = { 'prettier' },
         htmldjango = { 'prettier' },
         javascript = { 'prettier' },
+        javascriptreact = { 'prettier' },
         json = { 'prettier' },
         jsonc = { 'prettier' },
         lua = { 'stylua' },
@@ -770,6 +771,7 @@ require('lazy').setup({
         sh = { 'shfmt' },
         sql = { 'pg_format' },
         typescript = { 'prettier' },
+        typescriptreact = { 'prettier' },
         yaml = { 'prettier' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
