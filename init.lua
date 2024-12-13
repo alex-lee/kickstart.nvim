@@ -230,7 +230,7 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  -- 'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -638,6 +638,7 @@ require('lazy').setup({
         bashls = {},
         cssls = {},
         dockerls = {},
+        eslint = {},
         gopls = {
           settings = {
             gopls = {
@@ -649,19 +650,15 @@ require('lazy').setup({
           filetypes = { 'html', 'htmldjango' },
           init_options = { provideFormatter = false },
         },
-        jdtls = {},
         jsonls = {
           init_options = { provideFormatter = false },
         },
-        lemminx = {},
         marksman = {},
-        ruff_lsp = {},
+        ruff = {},
         pyright = {},
-        svelte = {},
         tailwindcss = {},
         taplo = {},
         templ = {},
-        terraformls = {},
         ts_ls = {},
         yamlls = {
           yaml = {
@@ -753,17 +750,18 @@ require('lazy').setup({
           lsp_format_opt = 'fallback'
         end
         return {
-          timeout_ms = 2000,
+          timeout_ms = 5000,
           lsp_format = lsp_format_opt,
         }
       end,
       formatters_by_ft = {
         css = { 'prettier' },
         go = { 'golines' },
+        handlebars = { 'prettier' },
         html = { 'prettier' },
         htmldjango = { 'prettier' },
-        javascript = { 'prettier' },
-        javascriptreact = { 'prettier' },
+        javascript = { 'prettier', 'eslint_d' },
+        javascriptreact = { 'prettier', 'eslint_d' },
         json = { 'prettier' },
         jsonc = { 'prettier' },
         lua = { 'stylua' },
@@ -771,8 +769,8 @@ require('lazy').setup({
         python = { 'isort', 'ruff_format' },
         sh = { 'shfmt' },
         sql = { 'pg_format' },
-        typescript = { 'prettier' },
-        typescriptreact = { 'prettier' },
+        typescript = { 'prettier', 'eslint_d' },
+        typescriptreact = { 'prettier', 'eslint_d' },
         yaml = { 'prettier' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
