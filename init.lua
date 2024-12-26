@@ -769,6 +769,7 @@ require('lazy').setup({
         python = { 'isort', 'ruff_format' },
         sh = { 'shfmt' },
         sql = { 'pg_format' },
+        templ = { 'rustywind' },
         typescript = { 'prettier', 'eslint_d' },
         typescriptreact = { 'prettier', 'eslint_d' },
         yaml = { 'prettier' },
