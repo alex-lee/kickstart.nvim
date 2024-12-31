@@ -766,7 +766,7 @@ require('lazy').setup({
         jsonc = { 'prettier' },
         lua = { 'stylua' },
         markdown = { 'prettier' },
-        python = { 'isort', 'ruff_format' },
+        python = { 'ruff_format', 'ruff_organize_imports' },
         sh = { 'shfmt' },
         sql = { 'pg_format' },
         templ = { 'rustywind' },
