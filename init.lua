@@ -595,6 +595,11 @@ require('lazy').setup({
 
           map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
+          -- Adjust styling for hover.
+          map('K', function()
+            vim.lsp.buf.hover { border = 'single', max_height = 25, max_width = 120 }
+          end, 'Show Hover Information')
+
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
           ---@param client vim.lsp.Client
           ---@param method vim.lsp.protocol.Method
@@ -925,7 +930,8 @@ require('lazy').setup({
       completion = {
         -- By default, you may press `<c-space>` to show the documentation.
         -- Optionally, set `auto_show = true` to show the documentation after a delay.
-        documentation = { auto_show = false, auto_show_delay_ms = 500 },
+        documentation = { auto_show = false, auto_show_delay_ms = 500, window = { border = 'single' } },
+        menu = { border = 'single' },
       },
 
       sources = {
@@ -947,7 +953,7 @@ require('lazy').setup({
       fuzzy = { implementation = 'lua' },
 
       -- Shows a signature help window while you type arguments for a function
-      signature = { enabled = true },
+      signature = { enabled = true, window = { border = 'single' } },
     },
   },
 
