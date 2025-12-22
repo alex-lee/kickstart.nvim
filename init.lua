@@ -719,7 +719,13 @@ require('lazy').setup({
         },
         marksman = {},
         ruff = {},
-        powershell_es = {},
+        powershell_es = {
+          settings = {
+            powershell = {
+              codeFormatting = { Preset = 'OTBS' },
+            },
+          },
+        },
         pyright = {},
         tailwindcss = {},
         taplo = {},
