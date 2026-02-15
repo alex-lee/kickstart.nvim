@@ -419,9 +419,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<leader>sb', function()
-        builtin.find_files { cwd = vim.fn.expand '%:p:h' }
-      end, { desc = '[S]earch si[b]lings of current file' })
+      vim.keymap.set('n', '<leader>sb', function() builtin.find_files { cwd = vim.fn.expand '%:p:h' } end, { desc = '[S]earch si[b]lings of current file' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set({ 'n', 'v' }, '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
@@ -505,6 +503,7 @@ require('lazy').setup({
       -- Mason must be loaded before its dependents so we need to set it up here.
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
       { 'mason-org/mason.nvim', opts = {} },
+      { 'mason-org/mason-lspconfig.nvim', opts = {} },
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
@@ -575,9 +574,7 @@ require('lazy').setup({
           map('gK', vim.lsp.buf.signature_help, 'Signature Documentation')
 
           -- Adjust styling for hover.
-          map('K', function()
-            vim.lsp.buf.hover { border = 'single', max_height = 25, max_width = 120 }
-          end, 'Show Hover Information')
+          map('K', function() vim.lsp.buf.hover { border = 'single', max_height = 25, max_width = 120 } end, 'Show Hover Information')
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
@@ -741,9 +738,7 @@ require('lazy').setup({
       notify_on_error = false,
       format_on_save = function(bufnr)
         -- Skip if disabled. See after/plugin/conform-nvim.lua
-        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-          return
-        end
+        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then return end
 
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
@@ -936,9 +931,7 @@ require('lazy').setup({
       -- default behavior. For example, here we set the section for
       -- cursor location to LINE:COLUMN
       ---@diagnostic disable-next-line: duplicate-set-field
-      statusline.section_location = function()
-        return '%p%% %3l:%-2v'
-      end
+      statusline.section_location = function() return '%p%% %3l:%-2v' end
 
       -- ... and there is more!
       --  Check out: https://github.com/nvim-mini/mini.nvim
