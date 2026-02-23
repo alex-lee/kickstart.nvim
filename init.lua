@@ -683,6 +683,7 @@ require('lazy').setup({
         'lua_ls', -- Lua Language server
         'stylua', -- Used to format Lua code
         -- You can add other tools here that you want Mason to install
+        'tree-sitter-cli',
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -762,6 +763,7 @@ require('lazy').setup({
         htmldjango = { 'prettier' },
         javascript = { 'prettier', 'eslint_d' },
         javascriptreact = { 'prettier', 'eslint_d' },
+        jinja = { 'prettier' },
         json = { 'prettier' },
         jsonc = { 'prettier' },
         lua = { 'stylua' },
