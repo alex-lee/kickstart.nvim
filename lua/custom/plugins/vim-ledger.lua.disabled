@@ -1,0 +1,3 @@
+-- vim-ledger
+
+vim.pack.add { 'https://github.com/ledger/vim-ledger' }

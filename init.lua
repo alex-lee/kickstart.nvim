@@ -124,12 +124,6 @@ do
   --  See `:help 'clipboard'`
   -- vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 
-  -- Sync clipboard between OS and Neovim.
-  --  Schedule the setting after `UiEnter` because it can increase startup-time.
-  --  Remove this option if you want your OS clipboard to remain independent.
-  --  See `:help 'clipboard'`
-  vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
-
   -- Enable break indent
   vim.o.breakindent = true
 
@@ -497,18 +491,15 @@ do
     --  All the info you're looking for is in `:help telescope.setup()`
     --
     defaults = {
+      layout_strategy = 'vertical',
+      layout_config = {
+        vertical = { width = 0.9 },
+      },
       mappings = {
         i = { ['<c-enter>'] = 'to_fuzzy_refine' },
       },
     },
-    pickers = {}
-    -- TODO: Review these.
-    -- defaults = {
-    --   layout_strategy = 'vertical',
-    --   layout_config = {
-    --     vertical = { width = 0.9 },
-    --   },
-    -- },
+    pickers = {},
     -- pickers = {
     --   buffers = {
     --     mappings = {
@@ -587,6 +578,9 @@ do
       previewer = false,
     })
   end, { desc = '[/] Fuzzily search in current buffer' })
+
+  -- Override the preceding.
+  vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = '[/] Fuzzily search in current buffer' })
 
   -- It's also possible to pass additional configuration options.
   --  See `:help telescope.builtin.live_grep()` for information about particular keys
@@ -846,11 +840,25 @@ do
     format_on_save = function(bufnr)
       -- You can specify filetypes to autoformat on save here:
       local enabled_filetypes = {
-        -- lua = true,
-        -- python = true,
+        css = true,
+        go = true,
+        hcl = true,
+        html = true,
+        javascript = true,
+        javascriptreact = true,
+        jinja = true,
+        json = true,
+        lua = true,
+        markdown = true,
+        python = true,
+        sh = true,
+        terraform = true,
+        typescript = true,
+        typescriptreact = true,
+        yaml = true,
       }
       if enabled_filetypes[vim.bo[bufnr].filetype] then
-        return { timeout_ms = 500 }
+        return { timeout_ms = 5000 }
       else
         return nil
       end
@@ -952,9 +960,7 @@ do
     completion = {
       -- By default, you may press `<c-space>` to show the documentation.
       -- Optionally, set `auto_show = true` to show the documentation after a delay.
-      -- documentation = { auto_show = false, auto_show_delay_ms = 500 },
-      documentation = { auto_show = false, auto_show_delay_ms = 500, window = { border = 'single' } },
-      menu = { border = 'single' },
+      documentation = { auto_show = false, auto_show_delay_ms = 500 },
     },
 
     sources = {
@@ -973,8 +979,7 @@ do
     fuzzy = { implementation = 'lua' },
 
     -- Shows a signature help window while you type arguments for a function
-    -- signature = { enabled = true },
-    signature = { enabled = true, window = { border = 'single' } },
+    signature = { enabled = true },
   }
 end
 
@@ -992,7 +997,43 @@ do
   vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' } }
 
   -- Ensure basic parsers are installed
-  local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
+  local parsers = {
+    'bash',
+    'c',
+    'diff',
+    'dockerfile',
+    'gitcommit',
+    'gitignore',
+    'go',
+    'gosum',
+    'gomod',
+    'gowork',
+    'html',
+    'javascript',
+    'jq',
+    'json',
+    'jsx',
+    'lua',
+    'luadoc',
+    'make',
+    'markdown',
+    'markdown_inline',
+    'mermaid',
+    'odin',
+    'python',
+    'query',
+    'sql',
+    'templ',
+    'terraform',
+    'toml',
+    'tsx',
+    'typescript',
+    'vim',
+    'vimdoc',
+    'xml',
+    'yaml',
+    'zig',
+  }
   require('nvim-treesitter').install(parsers)
 
   ---@param buf integer

@@ -1,10 +1,7 @@
 -- markdown-preview
 -- https://github.com/iamcco/markdown-preview.nvim
 
-return {
-  'iamcco/markdown-preview.nvim',
-  ft = 'markdown',
-  build = function()
-    vim.fn['mkdp#util#install']()
-  end,
-}
+vim.pack.add { 'https://github.com/iamcco/markdown-preview.nvim' }
+
+-- After initial install, need to manually do this:
+-- call mkdp#util#install()

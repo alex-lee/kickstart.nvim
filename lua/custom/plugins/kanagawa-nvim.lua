@@ -1,8 +1,5 @@
 -- Kanagawa color scheme
-return {
-  'rebelot/kanagawa.nvim',
-  priority = 999,
-  config = function()
-    vim.cmd.colorscheme 'kanagawa'
-  end,
-}
+
+vim.pack.add { 'https://github.com/rebelot/kanagawa.nvim' }
+
+vim.cmd.colorscheme 'kanagawa'
