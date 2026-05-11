@@ -43,3 +43,19 @@ vim.diagnostic.config {
 -- Disable list mode by default.
 vim.opt.list = false
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', eol = '$' }
+
+-- Disable htmldjango.
+-- We want html.jinja to be used instead.
+vim.filetype.add {
+  extension = {
+    html = function(path, bufnr) return 'html' end,
+  },
+}
+
+-- For html.jinja, disable treesitter.
+-- For some reason the treesitter-based highlighting of the jinja parts doesn't work.
+-- Revisit this later and see if the workaround can be removed.
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'html.jinja',
+  callback = function() vim.treesitter.stop() end,
+})
