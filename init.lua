@@ -499,19 +499,18 @@ do
         i = { ['<c-enter>'] = 'to_fuzzy_refine' },
       },
     },
-    pickers = {},
-    -- pickers = {
-    --   buffers = {
-    --     mappings = {
-    --       n = {
-    --         ['d'] = 'delete_buffer',
-    --       },
-    --     },
-    --   },
-    --   find_files = {
-    --     find_command = { 'fd', '--hidden', '--type', 'f', '--strip-cwd-prefix' },
-    --   },
-    -- },
+    pickers = {
+      buffers = {
+        mappings = {
+          n = {
+            ['d'] = 'delete_buffer',
+          },
+        },
+      },
+      -- find_files = {
+      --   find_command = { 'fd', '--hidden', '--type', 'f', '--strip-cwd-prefix' },
+      -- },
+    },
     extensions = {
       ['ui-select'] = { require('telescope.themes').get_dropdown() },
     },
