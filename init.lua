@@ -844,6 +844,7 @@ do
         go = true,
         hcl = true,
         html = true,
+        ['html.jinja'] = true,
         javascript = true,
         javascriptreact = true,
         jinja = true,
