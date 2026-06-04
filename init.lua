@@ -729,6 +729,7 @@ do
       init_options = { provideFormatter = false },
     },
     marksman = {},
+    ols = {},
     ruff = {},
     powershell_es = {
       settings = {
@@ -850,6 +851,7 @@ do
         json = true,
         lua = true,
         markdown = true,
+        odin = true,
         python = true,
         sh = true,
         terraform = true,
@@ -881,6 +883,7 @@ do
       jsonc = { 'prettier' },
       lua = { 'stylua' },
       markdown = { 'prettier' },
+      odin = { 'odinfmt' },
       python = { 'ruff_format', 'ruff_organize_imports' },
       sh = { 'shfmt' },
       sql = { 'pg_format' },
