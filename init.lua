@@ -858,6 +858,7 @@ do
         typescript = true,
         typescriptreact = true,
         yaml = true,
+        zig = true,
       }
       if enabled_filetypes[vim.bo[bufnr].filetype] then
         return { timeout_ms = 5000 }
@@ -892,6 +893,7 @@ do
       typescript = { 'prettier', 'eslint_d' },
       typescriptreact = { 'prettier', 'eslint_d' },
       yaml = { 'prettier' },
+      zig = { 'zigfmt' },
       -- rust = { 'rustfmt' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
