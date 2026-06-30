@@ -507,9 +507,15 @@ do
           },
         },
       },
-      -- find_files = {
-      --   find_command = { 'fd', '--hidden', '--type', 'f', '--strip-cwd-prefix' },
-      -- },
+      find_files = {
+        find_command = { 'fd', '--hidden', '--exclude', '.git/' },
+      },
+      grep_string = {
+        additional_args = { '--hidden', '--glob', '!.git/' },
+      },
+      live_grep = {
+        additional_args = { '--hidden', '--glob', '!.git/' },
+      },
     },
     extensions = {
       ['ui-select'] = { require('telescope.themes').get_dropdown() },
@@ -855,6 +861,7 @@ do
         python = true,
         sh = true,
         terraform = true,
+        toml = true,
         typescript = true,
         typescriptreact = true,
         yaml = true,
