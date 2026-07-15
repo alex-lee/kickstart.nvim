@@ -717,7 +717,11 @@ do
   ---@type table<string, vim.lsp.Config>
   local servers = {
     bashls = {},
-    cssls = {},
+    cssls = {
+      settings = {
+        css = { validate = true, lint = { unknownAtRules = 'ignore' } },
+      },
+    },
     dockerls = {},
     eslint = {},
     gopls = {
@@ -849,6 +853,8 @@ do
         css = true,
         go = true,
         hcl = true,
+        ['hcl.nomad'] = true,
+        ['hcl.packer'] = true,
         html = true,
         ['html.jinja'] = true,
         javascript = true,
@@ -881,7 +887,9 @@ do
       css = { 'prettier' },
       go = { 'golines' },
       handlebars = { 'prettier' },
-      hcl = { 'packer_fmt' },
+      ['hcl.nomad'] = { 'nomad_fmt' },
+      ['hcl.pkr'] = { 'packer_fmt' },
+      hcl = { 'hcl' },
       html = { 'prettier' },
       htmldjango = { 'prettier' },
       javascript = { 'prettier', 'eslint_d' },

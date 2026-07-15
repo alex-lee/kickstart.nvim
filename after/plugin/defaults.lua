@@ -52,10 +52,10 @@ vim.filetype.add {
   },
 }
 
--- For html.jinja, disable treesitter.
+-- For jinja file types, disable treesitter.
 -- For some reason the treesitter-based highlighting of the jinja parts doesn't work.
 -- Revisit this later and see if the workaround can be removed.
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'html.jinja',
+  pattern = { 'html.jinja', 'hcl.jinja', 'yaml.jinja' },
   callback = function() vim.treesitter.stop() end,
 })
