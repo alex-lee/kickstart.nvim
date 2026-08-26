@@ -32,14 +32,6 @@ vim.keymap.set('n', '<leader>n', ':nohlsearch<CR>', { desc = 'U[n]highlight sear
 vim.keymap.set('n', '[q', ':cprevious<CR>', { desc = 'Go to previous quickfix entry' })
 vim.keymap.set('n', ']q', ':cnext<CR>', { desc = 'Go to next quickfix entry' })
 
--- Include source for diagnostics.
-vim.diagnostic.config {
-  float = {
-    source = 'always',
-    border = 'single',
-  },
-}
-
 -- Disable list mode by default.
 vim.opt.list = false
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', eol = '$' }
