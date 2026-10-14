@@ -748,7 +748,6 @@ do
     jsonls = {
       init_options = { provideFormatter = false },
     },
-    kotlin_lsp = {},
     marksman = {},
     ols = {},
     ruff = {},
@@ -842,7 +841,6 @@ do
   local ensure_installed = vim.tbl_keys(servers or {})
   vim.list_extend(ensure_installed, {
     -- You can add other tools here that you want Mason to install
-    'ktlint',
   })
 
   require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -876,7 +874,6 @@ do
         javascriptreact = true,
         jinja = true,
         json = true,
-        kotlin = true,
         lua = true,
         markdown = true,
         odin = true,
@@ -914,7 +911,6 @@ do
       jinja = { 'prettier' },
       json = { 'prettier' },
       jsonc = { 'prettier' },
-      kotlin = { 'ktlint' },
       lua = { 'stylua' },
       markdown = { 'prettier' },
       odin = { 'odinfmt' },
@@ -1051,7 +1047,6 @@ do
     'jq',
     'json',
     'jsx',
-    'kotlin',
     'lua',
     'luadoc',
     'make',
