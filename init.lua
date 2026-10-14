@@ -763,7 +763,7 @@ do
     tailwindcss = {},
     taplo = {},
     templ = {},
-    ts_ls = {},
+    tsc = {},
     yamlls = {
       yaml = {
         keyOrdering = false,
