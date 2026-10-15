@@ -356,7 +356,7 @@ do
   --
   -- See `:help gitsigns` to understand what each configuration key does.
   -- Adds git related signs to the gutter, as well as utilities for managing changes
-  vim.pack.add { gh 'lewis6991/gitsigns.nvim' }
+  vim.pack.add { { src = gh 'lewis6991/gitsigns.nvim', version = vim.version.range '2.1' } }
   require('gitsigns').setup {
     signs = {
       add = { text = '+' }, ---@diagnostic disable-line: missing-fields
@@ -407,7 +407,7 @@ do
 
   -- [[ mini.nvim ]]
   --  A collection of various small independent plugins/modules
-  vim.pack.add { gh 'nvim-mini/mini.nvim' }
+  vim.pack.add { { src = gh 'nvim-mini/mini.nvim', version = vim.version.range '0.18' } }
 
   -- If a nerd font is available, load the icons module for pretty icons in various plugins.
   if vim.g.have_nerd_font then
@@ -647,7 +647,7 @@ do
   -- and elegantly composed help section, `:help lsp-vs-treesitter`
 
   -- Useful status updates for LSP.
-  vim.pack.add { gh 'j-hui/fidget.nvim' }
+  vim.pack.add { { src = gh 'j-hui/fidget.nvim', version = vim.version.range '2.0' } }
   require('fidget').setup {}
 
   --  This function gets run when an LSP attaches to a particular buffer.
@@ -817,9 +817,9 @@ do
   }
 
   vim.pack.add {
-    gh 'neovim/nvim-lspconfig',
-    gh 'mason-org/mason.nvim',
-    gh 'mason-org/mason-lspconfig.nvim',
+    { src = gh 'neovim/nvim-lspconfig', version = vim.version.range '2.12' },
+    { src = gh 'mason-org/mason.nvim', version = vim.version.range '2.3' },
+    { src = gh 'mason-org/mason-lspconfig.nvim', version = vim.version.range '2.3' },
     gh 'WhoIsSethDaniel/mason-tool-installer.nvim',
   }
 
@@ -861,6 +861,9 @@ do
   require('conform').setup {
     notify_on_error = false,
     format_on_save = function(bufnr)
+      -- Skip if disabled. See after/plugin/conform-nvim.lua
+      if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then return end
+
       -- You can specify filetypes to autoformat on save here:
       local enabled_filetypes = {
         css = true,

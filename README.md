@@ -125,6 +125,9 @@ That's it! `vim.pack` will install all the plugins from your config. Use
 `:lua vim.pack.update()` to fetch updates (`:write` applies updates, `:quit`
 cancels them).
 
+To sync plugins based on `nvim-pack-lock.json`, run
+`:lua vim.pack.update(nil, { target = 'lockfile' })`
+
 #### Read The Friendly Documentation
 
 Read through the `init.lua` file in your configuration folder for more
